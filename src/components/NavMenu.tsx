@@ -20,7 +20,7 @@ const NavMenu: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
+    <nav className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50 md:block hidden">
       <div className="flex flex-col items-center space-y-4 p-2">
         {navItems.map((item, index) => (
           <NavItem

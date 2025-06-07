@@ -28,10 +28,10 @@ const itemVariants = {
 
 const Home = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative h-screen w-full ">
       {/* Yellow background element with motion */}
       <motion.div 
-        className="h-screen w-1/4 translate-y-2.5 scale-150 -translate-x-1/2 absolute top-0 left-0 -rotate-12 bg-yellow"
+        className="h-screen w-1/4 translate-y-2.5 scale-150 -translate-x-1/2 absolute top-0 left-0 -rotate-12 bg-yellow "
         initial={{ x: "-100%" }}
         animate={{ x: "-25%" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -70,19 +70,43 @@ const Home = () => {
           className="w-full md:w-auto flex flex-col items-start justify-center px-4 md:px-10 h-[40vh] md:h-auto"
           variants={containerVariants}
         >
-          <motion.h1 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-yellow uppercase font-extrabold leading-tight"
-            variants={itemVariants}
-          >
-            {`I'm`} <span className="text-red">mahmoud gamal</span>
-          </motion.h1>
-          
-          <motion.h1 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white"
-            variants={itemVariants}
-          >
-            Web designer.
-          </motion.h1>
+          <motion.h3 
+              className="text-lg text-yellow uppercase tracking-[5px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              hello!
+            </motion.h3>
+            
+            <motion.h1 
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <span className="text-yellow uppercase">{`I'm`}</span>{' '}
+              <span className="text-yellow uppercase">mahmoud gamal</span>
+            </motion.h1>
+            
+            <motion.h2 
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              Web Designer & Developer
+            </motion.h2>
+            
+            <motion.p 
+              className="text-gray-300 text-lg max-w-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              Creating beautiful, functional websites that drive results. 
+              Specializing in modern web technologies and user-centered design.
+            </motion.p>
           
           {/* Buttons with tap/hover motion */}
           <motion.div 
