@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 interface Project {
@@ -7,7 +9,7 @@ interface Project {
   image: string;
 }
 
-const Projects: React.FC = () => {
+export default function Projects() {
   const projects: Project[] = [
     {
       id: 1,
@@ -94,6 +96,4 @@ const Projects: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
