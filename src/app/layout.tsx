@@ -6,7 +6,6 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 import Navbar from '@/components/NavMenu'
-import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -23,10 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}    text-white`}>
         <Navbar />
-        <main className="min-h-screen">
+        <main className="">
           {children}
         </main>
-        <Footer />
       </body>
     </html>
   )

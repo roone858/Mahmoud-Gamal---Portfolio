@@ -6,39 +6,75 @@ import {
   faBriefcase,
   faEnvelope,
   faComments,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const NavMenu: React.FC = () => {
+  const navItems = [
+    { icon: faHome, label: "Home", href: "#", active: true },
+    { icon: faUser, label: "About", href: "#" },
+    { icon: faBriefcase, label: "Portfolio", href: "#" },
+    { icon: faEnvelope, label: "Contact", href: "#" },
+    { icon: faComments, label: "Blog", href: "#" },
+  ];
+
   return (
-    <nav className="w-16 h-screen absolute top-0 right-0 flex flex-col justify-center items-center py-6 space-y-6">
-      <a href="#" className="text-white ">
-        <div className="w-12 h-12 bg-yellow-400 aspect-square rounded-full flex items-center justify-center">
-          <FontAwesomeIcon icon={faHome} size="lg" />
-        </div>
-      </a>
-      <a href="#" className="text-gray-400  hover:text-gray-300">
-        <div className="w-12 h-12 bg-secondary aspect-square rounded-full flex items-center justify-center">
-          <div className="w-12 h-12 bg-secondary aspect-square rounded-full flex items-center justify-center">
-            <FontAwesomeIcon icon={faUser} size="lg" />
+    <nav className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
+      <div className="flex flex-col items-center space-y-4 p-2">
+        {navItems.map((item, index) => (
+          <NavItem
+            key={index}
+            icon={item.icon}
+            label={item.label}
+            href={item.href}
+            active={item.active}
+          />
+        ))}
+      </div>
+    </nav>
+  );
+};
+
+interface NavItemProps {
+  icon: IconDefinition;
+  label: string;
+  href: string;
+  active?: boolean;
+}
+
+const NavItem: React.FC<NavItemProps> = ({ icon, label, href, active = false }) => {
+  return (
+    <Link href={href} passHref>
+      <div className="relative group">
+        {/* Tooltip */}
+        <div className="absolute right-full top-1/2 transform -translate-y-1/2 mr-3 hidden group-hover:block">
+          <div className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded whitespace-nowrap">
+            {label}
+            <div className="absolute left-full top-1/2 w-2 h-2 bg-gray-800 transform -translate-y-1/2 rotate-45"></div>
           </div>
         </div>
-      </a>
-      <a href="#" className="text-gray-400 hover:text-gray-300">
-        <div className="w-12 h-12 bg-secondary aspect-square rounded-full flex items-center justify-center">
-          <FontAwesomeIcon icon={faBriefcase} size="lg" />
-        </div>
-      </a>
-      <a href="#" className="text-gray-400 hover:text-gray-300">
-        <div className="w-12 h-12 bg-secondary aspect-square rounded-full flex items-center justify-center">
-          <FontAwesomeIcon icon={faEnvelope} size="lg" />
-        </div>
-      </a>
-      <a href="#" className="text-gray-400 hover:text-gray-300">
-        <div className="w-12 h-12 bg-secondary aspect-square rounded-full flex items-center justify-center">
-          <FontAwesomeIcon icon={faComments} size="lg" />
-        </div>
-      </a>
-    </nav>
+
+        {/* Button */}
+        <button
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
+            ${
+              active
+                ? "bg-yellow text-white "
+                : "bg-secondary text-gray-300 hover:bg-gray-600 hover:text-white"
+            }
+            group-hover:scale-110`}
+          aria-label={label}
+        >
+          <FontAwesomeIcon icon={icon} size="lg" />
+        </button>
+
+        {/* Active indicator */}
+        {/* {active && (
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 w-1 h-6 bg-yellow-500 rounded-r"></div>
+        )}   */}
+      </div>
+    </Link>
   );
 };
 
