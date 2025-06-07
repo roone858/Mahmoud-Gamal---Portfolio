@@ -7,8 +7,8 @@ config.autoAddCss = false;
 import Navbar from "@/components/NavMenu";
 import MobileMenu from "@/components/MobileMenu";
 import { Poppins } from "next/font/google";
-import { Suspense } from "react";
-import Loading from "./loading";
+
+import { RouteTransition } from "@/components/RouteTransition";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,12 +29,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      
       <body className={`${poppins.variable} text-white`}>
         <Navbar />
         <main className="">
           <MobileMenu />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+          <RouteTransition>{children}</RouteTransition>
         </main>
       </body>
     </html>
