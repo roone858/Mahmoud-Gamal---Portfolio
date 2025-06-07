@@ -11,6 +11,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const MobileMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +26,9 @@ const MobileMenu: React.FC = () => {
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-white focus:outline-none"
+        className="text-white focus:outline-none absolute top-4 right-4 z-50"
       >
-        <FontAwesomeIcon icon={faBars} size="lg" />
+        <FontAwesomeIcon icon={faBars} size="2xl" />
       </button>
 
       <AnimatePresence>
@@ -46,41 +47,46 @@ const MobileMenu: React.FC = () => {
               <FontAwesomeIcon icon={faTimes} size="lg" />
             </button>
             <nav className="mt-12 space-y-4">
-              <a
-                href="#"
+              <Link
+              onClick={()=> setIsOpen(false)}
+                href="/"
                 className="flex items-center text-yellow-400 hover:text-yellow-300"
               >
                 <FontAwesomeIcon icon={faHome} className="mr-2" />
                 HOME
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+              onClick={()=> setIsOpen(false)}
+                href="/about"
                 className="flex items-center text-gray-300 hover:text-gray-200"
               >
                 <FontAwesomeIcon icon={faUser} className="mr-2" />
                 ABOUT
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+              onClick={()=> setIsOpen(false)}
+                href="/portfolio"
                 className="flex items-center text-gray-300 hover:text-gray-200"
               >
                 <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
                 PORTFOLIO
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+              onClick={()=> setIsOpen(false)}
+                href="/contact"
                 className="flex items-center text-gray-300 hover:text-gray-200"
               >
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
                 CONTACT
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+              onClick={()=> setIsOpen(false)}
+                href="/blog"
                 className="flex items-center text-gray-300 hover:text-gray-200"
               >
                 <FontAwesomeIcon icon={faComments} className="mr-2" />
                 BLOG
-              </a>
+              </Link>
             </nav>
           </motion.div>
         )}
