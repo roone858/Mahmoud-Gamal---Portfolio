@@ -8,7 +8,6 @@ import Navbar from "@/components/NavMenu";
 import MobileMenu from "@/components/MobileMenu";
 import { Poppins } from "next/font/google";
 
-import { RouteTransition } from "@/components/RouteTransition";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -33,7 +32,7 @@ export default function RootLayout({
         <Navbar />
         <main className="">
           <MobileMenu />
-          <RouteTransition>{children}</RouteTransition>
+          {children}
         </main>
       </body>
     </html>

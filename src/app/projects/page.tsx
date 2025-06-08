@@ -1,99 +1,264 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { FaHeart, FaRegHeart, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import Header from '@/components/Header';
 
 interface Project {
   id: number;
   title: string;
   category: string;
   image: string;
+  description: string;
+  technologies: string[];
+  demoUrl?: string;
+  githubUrl?: string;
 }
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [likedProjects, setLikedProjects] = useState<number[]>([]);
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+
   const projects: Project[] = [
     {
       id: 1,
       title: 'School Management System | PERN STACK',
-      category: 'Video',
-      image: '/imgs/cms.jpeg'
+      category: 'Full Stack',
+      image: '/imgs/cms.jpeg',
+      description: 'A comprehensive school management system built with PostgreSQL, Express, React, and Node.js. Features include student enrollment, grade tracking, and teacher management.',
+      technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
+      demoUrl: '#',
+      githubUrl: '#',
     },
     {
       id: 2,
-      title: 'Egypt Future Work | static website',
-      category: 'Video',
-      image: '/imgs/Egypt.jpeg'
+      title: 'Egypt Future Work | Static Website',
+      category: 'Frontend',
+      image: '/imgs/Egypt.jpeg',
+      description: 'A responsive static website showcasing Egypt\'s future work initiatives with modern animations and interactive elements.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
+      demoUrl: '#',
     },
     {
       id: 3,
       title: 'Recipe Finder | React.js, API integration',
-      category: 'Video',
-      image: '/imgs/recipe-finder.jpeg'
+      category: 'Frontend',
+      image: '/imgs/recipe-finder.jpeg',
+      description: 'Interactive recipe finder application that fetches data from external APIs with search and filtering capabilities.',
+      technologies: ['React', 'API Integration', 'CSS Modules'],
+      githubUrl: '#',
     },
     {
       id: 4,
-      title: 'Search Country project',
-      category: 'Video',
-      image: '/imgs/wcl.JPG'
+      title: 'Search Country Project',
+      category: 'Frontend',
+      image: '/imgs/wcl.JPG',
+      description: 'Country information search tool with detailed statistics and interactive maps.',
+      technologies: ['React', 'REST API', 'Chart.js'],
+      demoUrl: '#',
     },
     {
       id: 5,
-      title: 'Most countries Project',
-      category: 'Video',
-      image: '/imgs/wcd.JPG'
-    }
+      title: 'Most Countries Project',
+      category: 'Frontend',
+      image: '/imgs/wcd.JPG',
+      description: 'Comparative analysis dashboard for country statistics with data visualization.',
+      technologies: ['React', 'D3.js', 'Tailwind CSS'],
+      githubUrl: '#',
+    },
   ];
 
+  const toggleLike = (projectId: number) => {
+    setLikedProjects((prev) =>
+      prev.includes(projectId) ? prev.filter((id) => id !== projectId) : [...prev, projectId]
+    );
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hover: { y: -5, boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)' },
+  };
+
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { type: 'spring', damping: 25 } },
+    exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } },
+  };
+
   return (
-    <section className="py-8 pb-24 w-[85vw] mx-auto bg-black">
-      <div className="relative w-full h-25 mb-12">
-        <h2 className="absolute text-6xl uppercase text-center text-nero font-poppins font-black left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          projects
-        </h2>
-        <h1 className="relative text-4xl text-center uppercase font-black font-poppins left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-          my projects
-        </h1>
+    <section className="min-h-screen  text-white py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="relative w-full h-40 mb-12 overflow-hidden">
+     <Header title="works" subtitle="my " goldenrod='portfolio' />
       </div>
-      
-      <p className="text-gray-300 text-center w-full md:w-3/4 mx-auto mb-12">
-        A creative project is a moving target. You never end up where you start.
-      </p>
-      
-      <div className="flex justify-center">
-        <div className="w-full">
-          <div className="flex flex-wrap justify-center -mx-5">
-            {projects.map((project) => (
-              <div 
-                key={project.id} 
-                className="w-full md:w-1/2 lg:w-1/3 px-5 mb-10"
+
+  
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {projects.map((project) => (
+          <motion.div
+            key={project.id}
+            className="relative group"
+            custom={project.id}
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover="hover"
+            onClick={() => setSelectedProject(project)}
+            transition={{ duration: 0.3 }}
+            onMouseEnter={() => setHoveredProject(project.id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="bg-charcoal  rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              {/* Project Image */}
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
+                <div className="w-full h-full  flex items-center justify-center">
+                  <span className="text-gray-500">Project Image</span>
+                </div>
+                {/* Like Button */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleLike(project.id);
+                  }}
+                  className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-black/80 transition-colors"
+                  aria-label={likedProjects.includes(project.id) ? 'Unlike project' : 'Like project'}
+                >
+                  {likedProjects.includes(project.id) ? (
+                    <FaHeart className="text-red-500 text-lg sm:text-xl" />
+                  ) : (
+                    <FaRegHeart className="text-white text-lg sm:text-xl hover:text-red-500 transition-colors" />
+                  )}
+                </motion.button>
+              </div>
+
+              {/* Project Info */}
+              <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-yellow-400 text-xs sm:text-sm font-medium uppercase tracking-wider">
+                    {project.category}
+                  </span>
+                  <span className="text-gray-500 text-xs sm:text-sm">
+                    {likedProjects.includes(project.id) ? 'Liked' : ''}
+                  </span>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 line-clamp-2">
+                  {project.title}
+                </h3>
+
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div
+              className="relative bg-charcoal rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8"
+              variants={modalVariants}
+            >
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full bg-background hover:bg-gray-600 transition-colors"
+                aria-label="Close modal"
               >
-                <div className="bg-gradient-to-br from-nero to-gray-900 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="mb-6">
-                    {/* <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-48 object-cover rounded-lg"
-                    /> */}
-                  </div>
+                <FaTimes className="text-xl sm:text-2xl" />
+              </button>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div className="h-48 sm:h-64 md:h-full bg-background rounded-lg flex items-center justify-center">
+                  <span className="text-gray-500">Project Image</span>
+                </div>
+
+                <div>
                   <div className="flex justify-between items-start mb-4">
-                    <a href="#" className="text-red hover:underline">
-                      {project.category}
-                    </a>
-                    <div className="flex items-center">
-                      <button className="text-gray-400 hover:text-red">
-                        <i className="fas fa-heart mr-1"></i>
-                        <span>**</span>
-                      </button>
+                    <span className="text-yellow-400 text-sm sm:text-base font-medium uppercase tracking-wider">
+                      {selectedProject.category}
+                    </span>
+                    <button
+                      onClick={() => toggleLike(selectedProject.id)}
+                      className="flex items-center text-gray-400 hover:text-red-500 transition-colors"
+                    >
+                      {likedProjects.includes(selectedProject.id) ? (
+                        <FaHeart className="text-red-500 mr-2 text-lg sm:text-xl" />
+                      ) : (
+                        <FaRegHeart className="mr-2 text-lg sm:text-xl" />
+                      )}
+                      {likedProjects.includes(selectedProject.id) ? 'Liked' : 'Like'}
+                    </button>
+                  </div>
+
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                    {selectedProject.title}
+                  </h2>
+
+                  <p className="text-gray-300 text-sm sm:text-base mb-6">
+                    {selectedProject.description}
+                  </p>
+
+                  <div className="mb-6">
+                    <h3 className="text-white text-lg sm:text-xl font-medium mb-2">Technologies:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-background text-gray-300 rounded-full text-xs sm:text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                  <h4 className="text-xl text-gray-100 font-medium">
-                    {project.title}
-                  </h4>
+
+                  <div className="flex gap-4 flex-col sm:flex-row">
+                    {selectedProject.demoUrl && (
+                      <motion.a
+                        href={selectedProject.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, backgroundColor: '#facc15' }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center justify-center px-4 py-2 bg-yellow-400 text-black rounded-lg transition-colors font-medium text-sm sm:text-base"
+                      >
+                        Live Demo <FaExternalLinkAlt className="ml-2 text-sm sm:text-base" />
+                      </motion.a>
+                    )}
+                    {selectedProject.githubUrl && (
+                      <motion.a
+                        href={selectedProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, backgroundColor: '#4b5563' }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center justify-center px-4 py-2 bg-background text-white rounded-lg transition-colors font-medium text-sm sm:text-base"
+                      >
+                        View Code <FaExternalLinkAlt className="ml-2 text-sm sm:text-base" />
+                      </motion.a>
+                    )}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
