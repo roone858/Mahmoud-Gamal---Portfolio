@@ -12,7 +12,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-secondary: rgb(43, 42, 42);
-  --color-yellow: #ffb400;
+  --color-goldenrod: #ffb400;
   --color-charcoal: #252525;
 }
 
@@ -20,6 +20,7 @@
   :root {
     --background: #111;
     --charcoal: #252525;
+    --goldenrod: #ffb400;
     --foreground: #ededed;
   }
 }

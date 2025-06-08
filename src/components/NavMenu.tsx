@@ -60,7 +60,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, href, active = false }) 
           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
             ${
               active
-                ? "bg-yellow text-white "
+                ? "bg-goldenrod text-white "
                 : "bg-secondary text-gray-300 hover:bg-gray-600 hover:text-white"
             }
             group-hover:scale-110`}
@@ -71,7 +71,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, href, active = false }) 
 
         {/* Active indicator */}
         {/* {active && (
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 w-1 h-6 bg-yellow-500 rounded-r"></div>
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 w-1 h-6 bg-goldenrod-500 rounded-r"></div>
         )}   */}
       </div>
     </Link>

@@ -55,17 +55,17 @@ const ExperienceEducation: React.FC = () => {
           <div key={index} className="flex items-start mb-8 md:mb-12 relative group">
             {/* Timeline connector */}
             {index !== items.length - 1 && (
-              <div className="absolute left-5 top-10 h-full w-0.5 bg-charcoal group-last:hidden"></div>
+              <div className="absolute left-5 top-10 h-3/4 w-0.5 bg-charcoal group-last:hidden"></div>
             )}
             
             <div className="flex-shrink-0 mr-4 md:mr-6 z-10">
-              <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+              <div className="w-10 h-10 bg-goldenrod rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
                 <FontAwesomeIcon icon={item.icon} className="text-black text-lg" />
               </div>
             </div>
             
             <div className="flex-1">
-              <div className="text-yellow-400 text-sm md:text-base mb-1 md:mb-2">{item.date}</div>
+              <div className="text-goldenrod text-sm md:text-base mb-1 md:mb-2">{item.date}</div>
               <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 leading-tight">{item.title}</h3>
               <p className="text-gray-300 text-sm md:text-base">{item.description}</p>
             </div>

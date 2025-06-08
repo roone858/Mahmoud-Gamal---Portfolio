@@ -12,13 +12,13 @@ const Button: React.FC<{ icon: IconDefinition; text: string }> = ({
     <motion.a
       href="/cv.pdf" // Replace with the path to your CV file
       download
-      className="inline-flex items-center justify-between  border-1 border-yellow text-white  rounded-full font-semibold text-lg"
+      className="inline-flex items-center justify-between  border-1 border-goldenrod text-white  rounded-full font-semibold text-lg"
       whileHover={{ backgroundColor: "#ffb400" }} // Scale up on hover
       whileTap={{ backgroundColor: "#ffb400" }} // Scale down on click
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <span className="px-6">{text}</span>
-      <div className=" flex items-center justify-center bg-yellow rounded-full text-white w-12 h-12" >
+      <div className=" flex items-center justify-center bg-goldenrod rounded-full text-white w-12 h-12" >
 
       <FontAwesomeIcon icon={icon}/>
       </div>

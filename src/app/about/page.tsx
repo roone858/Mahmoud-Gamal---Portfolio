@@ -65,7 +65,7 @@ const About = () => {
               key={index}
               className="bg-charcoal backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-800 shadow-lg hover:border-yellow-400 transition-colors duration-300"
             >
-              <h3 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-2">
+              <h3 className="text-3xl sm:text-4xl font-bold text-goldenrod-400 mb-2">
                 {stat.value}
               </h3>
               <p className="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">

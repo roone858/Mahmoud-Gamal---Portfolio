@@ -50,7 +50,7 @@ const MobileMenu: React.FC = () => {
               <Link
               onClick={()=> setIsOpen(false)}
                 href="/"
-                className="flex items-center text-yellow-400 hover:text-yellow-300"
+                className="flex items-center text-goldenrod-400 hover:text-goldenrod-300"
               >
                 <FontAwesomeIcon icon={faHome} className="mr-2" />
                 HOME
