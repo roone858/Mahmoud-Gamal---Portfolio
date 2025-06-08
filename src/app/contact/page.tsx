@@ -1,151 +1,247 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaEnvelope, FaPhone, FaCheckCircle } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import Button from "@/components/Button";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import Header from "@/components/Header";
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [showMessage, setShowMessage] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 5000);
     setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     });
+    setIsSubmitting(false);
   };
 
   return (
-    <section className="py-8 pb-24 w-[85vw] mx-auto bg-black">
-      <div className="relative w-full h-25 mb-12">
-        <h2 className="absolute text-6xl uppercase text-center text-nero font-poppins font-black left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          contact
-        </h2>
-        <h1 className="relative text-4xl text-center uppercase font-black font-poppins left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-          get in touch
-        </h1>
-      </div>
-      
-      <p className="text-gray-300 text-center w-full md:w-3/4 mx-auto mb-12">
-       {` Although I'm not currently looking for any new opportunities, my inbox
-        is always open. Whether you have a question or just want to say hi, I'll
-        try my best to get back to you!`}
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12">
-        <div>
-          <h3 className="text-2xl uppercase font-open-sans mb-4">feel free to ask us !</h3>
-          <p className="text-gray-300 mb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            veniam beatae velit modi doloribus, ut possimus sit voluptatem
-            molestias dignissimos quasi.
+    <section className=" py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Header with animations */}
+      <Header title="contact" subtitle="get in" goldenrod="touch" />
+
+      {/* Contact Content */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-6">
+        {/* Contact Info */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h3 className="text-2xl uppercase font-bold mb-6 text-white">
+            Feel free to ask me!
+          </h3>
+          <p className="text-white mb-8">
+            {` I'm passionate about creating digital experiences and solving problems. 
+            If you have a project in mind or just want to connect, don't hesitate to reach out.`}
           </p>
-          
-          <div className="flex items-start mb-8">
-            <i className="fas fa-envelope text-3xl text-red mt-1 mr-4"></i>
-            <div>
-              <label className="block uppercase font-open-sans text-lg">mail me</label>
-              <p className="text-gray-300">mahmoudg.dev@gmail.com</p>
+
+          <div className="space-y-6">
+            <div className="flex items-start">
+              <div className="bg-charcoal p-3 rounded-full mr-4">
+                <FaEnvelope className="text-yellow-400 text-xl" />
+              </div>
+              <div>
+                <label className="block uppercase font-bold text-sm text-white mb-1">
+                  mail me
+                </label>
+                <a
+                  href="mailto:mahmoudg.dev@gmail.com"
+                  className="text-white hover:text-yellow-400 transition-colors"
+                >
+                  mahmoudg.dev@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-charcoal p-3 rounded-full mr-4">
+                <FaPhone className="text-yellow-400 text-xl" />
+              </div>
+              <div>
+                <label className="block uppercase font-bold text-sm text-white mb-1">
+                  call me
+                </label>
+                <a
+                  href="tel:01140192314"
+                  className="text-white hover:text-yellow-400 transition-colors"
+                >
+                  +20 114 019 2314
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <h4 className="text-white uppercase font-bold text-sm mb-4">
+                Connect with me
+              </h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.facebook.com/mah.moud.1675275"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mahmoud-gamal-55a933166/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://wa.me/201140192314"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <FaWhatsapp />
+                </a>
+              </div>
             </div>
           </div>
-          
-          <div className="flex items-start mb-8">
-            <i className="fas fa-phone text-3xl text-red mt-1 mr-4"></i>
-            <div>
-              <label className="block uppercase font-open-sans text-lg">call me</label>
-              <p className="text-gray-300">01140192314</p>
+        </motion.div>
+
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="name" className="sr-only">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="w-full bg-charcoal  rounded-full px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                  className="w-full bg-charcoal  rounded-full px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                  required
+                />
+              </div>
             </div>
-          </div>
-          
-          <div className="flex gap-4">
-            <a href="https://www.facebook.com/mah.moud.1675275" className="text-white hover:text-red text-2xl transition-colors">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/mahmoud-gamal-55a933166/" className="text-white hover:text-red text-2xl transition-colors">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com/" className="text-white hover:text-red text-2xl transition-colors">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://wa.me/201140192314" className="text-white hover:text-red text-2xl transition-colors">
-              <i className="fab fa-whatsapp"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+
+            <div>
+              <label htmlFor="subject" className="sr-only">
+                Subject
+              </label>
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                id="subject"
+                name="subject"
+                value={formData.subject}
                 onChange={handleChange}
-                placeholder="Your Name"
-                className="w-full bg-nero border-2 border-transparent rounded-full px-4 py-3 text-white placeholder-gray-500 focus:border-red outline-none uppercase font-open-sans"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className="w-full bg-nero border-2 border-transparent rounded-full px-4 py-3 text-white placeholder-gray-500 focus:border-red outline-none uppercase font-open-sans"
+                placeholder="Subject"
+                className="w-full bg-charcoal  rounded-full px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
                 required
               />
             </div>
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              placeholder="Your Subject"
-              className="w-full bg-nero border-2 border-transparent rounded-full px-4 py-3 text-white placeholder-gray-500 focus:border-red outline-none uppercase font-open-sans mb-4"
-              required
-            />
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={5}
-              placeholder="Your Message"
-              className="w-full bg-nero border-2 border-transparent rounded-3xl px-4 py-3 text-white placeholder-gray-500 focus:border-red outline-none uppercase font-open-sans mb-4"
-              required
-            ></textarea>
-            <button
-              type="submit"
-              className="w-full bg-red text-white rounded-full px-4 py-3 uppercase font-open-sans hover:bg-black hover:border-red hover:border-2 transition-all"
-            >
-              send message
-            </button>
+
+            <div>
+              <label htmlFor="message" className="sr-only">
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Your Message"
+                className="w-full bg-charcoal  rounded-3xl px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                required
+              />
+            </div>
+
+            <Button icon={faPaperPlane} text="Send Message" />
           </form>
-          
-          {showMessage && (
-            <div className="mt-4 border-2 border-green-500 rounded-xl p-4">
-              <p className="text-white">
-              {`  Thank you for letting us know. I'm here to help, and I'll respond
-                as soon as I can. Have a great day`}
-              </p>
-            </div>
-          )}
-        </div>
+
+          {/* Success Message */}
+          <AnimatePresence>
+            {showMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="mt-6 bg-green-500/10 border border-green-500 rounded-xl p-4 flex items-start gap-3"
+              >
+                <FaCheckCircle className="text-green-500 text-xl mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-white font-medium">
+                    Thank you for your message!
+                  </p>
+                  <p className="text-green-300 text-sm">{`I'll get back to you as soon as possible.`}</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

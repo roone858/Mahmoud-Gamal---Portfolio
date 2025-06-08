@@ -6,7 +6,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 import Navbar from "@/components/NavMenu";
 import MobileMenu from "@/components/MobileMenu";
-import {RouteTransition} from "@/components/RouteTransition";
+import { RouteTransition } from "@/components/RouteTransition";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -30,9 +30,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} text-white`}>
         <Navbar />
-        <main className="">
-          <MobileMenu />
-          <RouteTransition>{children}</RouteTransition>
+        <MobileMenu />
+        <main>
+          <RouteTransition />
+          {children}
         </main>
       </body>
     </html>

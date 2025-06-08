@@ -113,12 +113,12 @@ export default function Projects() {
   return (
     <section className="min-h-screen  text-white py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="relative w-full h-40 mb-12 overflow-hidden">
+     
         <Header title="works" subtitle="my " goldenrod="portfolio" />
-      </div>
+     
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12">
         {projects.map((project) => (
           <motion.div
             key={project.id}

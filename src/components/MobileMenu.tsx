@@ -62,7 +62,7 @@ const MobileMenu: React.FC = () => {
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-white focus:outline-none fixed top-6 right-6 z-40"
+        className="text-white focus:outline-none fixed top-5 right-6 z-40"
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         <FontAwesomeIcon 

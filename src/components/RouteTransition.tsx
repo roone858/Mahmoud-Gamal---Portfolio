@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export function RouteTransition({ children }: { children: React.ReactNode }) {
+export function RouteTransition() {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -14,10 +14,10 @@ export function RouteTransition({ children }: { children: React.ReactNode }) {
     const handleRouteChange = () => {
       setLoading(true);
       setProgress(0);
-      
+
       // Simulate progress
       const interval = setInterval(() => {
-        setProgress(prev => {
+        setProgress((prev) => {
           if (prev >= 100) {
             clearInterval(interval);
             return 100;
@@ -47,9 +47,9 @@ export function RouteTransition({ children }: { children: React.ReactNode }) {
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}
             exit={{ y: "-100%" }}
-            transition={{ 
+            transition={{
               duration: 0.8,
-              ease: [0.22, 1, 0.36, 1] // Custom easing for smoothness
+              ease: [0.22, 1, 0.36, 1], // Custom easing for smoothness
             }}
             className="fixed inset-0 z-50 bg-gradient-to-br from-amber-400 to-yellow-500"
           >
@@ -81,9 +81,9 @@ export function RouteTransition({ children }: { children: React.ReactNode }) {
                     transition={{ duration: 0.3 }}
                   />
                 </svg>
-                
+
                 {/* Center percentage */}
-                <motion.div 
+                <motion.div
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-xl"
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ repeat: Infinity, duration: 0.8 }}
@@ -99,7 +99,7 @@ export function RouteTransition({ children }: { children: React.ReactNode }) {
                 transition={{ delay: 0.3 }}
                 className="text-center space-y-2"
               >
-                <motion.p 
+                <motion.p
                   className="text-white font-medium text-lg"
                   animate={{ y: [0, -5, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}
@@ -111,26 +111,6 @@ export function RouteTransition({ children }: { children: React.ReactNode }) {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
-
-      {/* Page content with smooth entrance */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={pathname}
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={{ 
-            opacity: 1, 
-            filter: "blur(0px)",
-            transition: { delay: loading ? 0 : 0.5 }
-          }}
-          exit={{ opacity: 0, filter: "blur(5px)" }}
-          transition={{ 
-            duration: 0.6,
-            ease: [0.22, 1, 0.36, 1]
-          }}
-        >
-          {children}
-        </motion.div>
       </AnimatePresence>
     </>
   );
