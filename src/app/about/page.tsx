@@ -30,9 +30,11 @@ const About = () => {
 
   return (
     <section className="py-8 pb-24 mx-auto px-4 sm:px-6 lg:px-8">
+
+
       <Header title="about" subtitle="about" goldenrod="me" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 py-12 px-4 md:px-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 py-12 px-4 md:px-12 lg:px-24">
         {/* Personal Info Section */}
         <div className="space-y-6">
           <div className="bg-charcoal backdrop-blur-sm p-6 rounded-xl border border-gray-800 shadow-lg">
@@ -63,12 +65,12 @@ const About = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="bg-charcoal backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-800 shadow-lg hover:border-goldenrod transition-colors duration-300"
+              className=" backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-charcoal shadow-lg hover:border-goldenrod transition-colors duration-300"
             >
               <h3 className="text-3xl sm:text-4xl font-bold text-goldenrod mb-2">
                 {stat.value}
               </h3>
-              <p className="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">
+              <p className="text-xs sm:text-xl  text-gray-300 uppercase tracking-wider">
                 {stat.label}
               </p>
             </div>
@@ -77,15 +79,15 @@ const About = () => {
       </div>
 
       {/* Divider */}
-      <div className="my-12 mx-4 sm:mx-20">
-        <hr className="border-t border-white/25" />
+      <div className="my-12 mx-4 sm:mx-50">
+        <hr className="border-t border-charcoal" />
       </div>
 
       {/* Skills & Experience Sections */}
       <div className="space-y-12">
         <Skills />
-        <div className="my-12 mx-4 sm:mx-20">
-          <hr className="border-t border-white/25" />
+        <div className="my-12 mx-4 sm:mx-50">
+          <hr className="border-t border-charcoal" />
         </div>
         <ExperienceEducation />
       </div>
