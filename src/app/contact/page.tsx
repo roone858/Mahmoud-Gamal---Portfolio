@@ -219,7 +219,7 @@ const Contact: React.FC = () => {
               />
             </div>
 
-            <Button icon={faPaperPlane} text="Send Message" />
+            <Button icon={faPaperPlane} text={`${isSubmitting ? "Sending..." : "Send Message"}`} />
           </form>
 
           {/* Success Message */}
