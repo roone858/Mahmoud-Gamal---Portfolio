@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, goldenrod }) => {
       {/* Main Header (Desktop) */}
   
       <motion.div
-        className="relative hidden md:block w-full h-32 mt-8 md:mt-12"
+        className="relative  w-full h-32 mt-12 md:mt-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}

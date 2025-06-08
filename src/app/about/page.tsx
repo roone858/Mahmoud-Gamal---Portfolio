@@ -34,7 +34,7 @@ const About = () => {
 
       <Header title="about" subtitle="about" goldenrod="me" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 py-12 px-4 md:px-12 lg:px-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 py-6 md:py-8 px-4 md:px-12 lg:px-24">
         {/* Personal Info Section */}
         <div className="space-y-6">
           <div className="bg-charcoal backdrop-blur-sm p-6 rounded-xl border border-gray-800 shadow-lg">
