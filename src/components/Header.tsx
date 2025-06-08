@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
       <h2 className="absolute text-8xl text-[#252424]  uppercase text-center text-nero font-poppins font-black left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         {title}
       </h2>
-      <h1 className="relative text-5xl text-center text-white uppercase font-black font-poppins left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+      <h1 className="relative  text-5xl text-center text-white uppercase font-black font-poppins left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         {subtitle}  
       </h1>
     </div>

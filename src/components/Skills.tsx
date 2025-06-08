@@ -13,10 +13,10 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white py-12 px-4 md:px-12">
+    <div className="min-h-screen text-white   ">
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">MY SKILLS</h1>
       
-      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-4 md:px-12">
         {skills.map((skill, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="relative w-28 h-28 sm:w-32 sm:h-32">
@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
                   cy="50"
                   r="45"
                   fill="none"
-                  stroke="#4B5563"
+                  stroke="#252525"
                   strokeWidth="8"
                 />
                 {/* Progress circle */}
@@ -38,7 +38,6 @@ const Skills: React.FC = () => {
                   fill="none"
                   stroke="#F59E0B"
                   strokeWidth="8"
-                  strokeLinecap="round"
                   strokeDasharray="283"
                   strokeDashoffset={283 - (283 * skill.percentage) / 100}
                 />

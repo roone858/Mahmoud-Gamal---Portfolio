@@ -13,11 +13,13 @@
   --font-mono: var(--font-geist-mono);
   --color-secondary: rgb(43, 42, 42);
   --color-yellow: #ffb400;
+  --color-charcoal: #252525;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #111;
+    --charcoal: #252525;
     --foreground: #ededed;
   }
 }

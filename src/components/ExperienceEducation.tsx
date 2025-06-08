@@ -55,7 +55,7 @@ const ExperienceEducation: React.FC = () => {
           <div key={index} className="flex items-start mb-8 md:mb-12 relative group">
             {/* Timeline connector */}
             {index !== items.length - 1 && (
-              <div className="absolute left-5 top-10 h-full w-0.5 bg-gray-700 group-last:hidden"></div>
+              <div className="absolute left-5 top-10 h-full w-0.5 bg-charcoal group-last:hidden"></div>
             )}
             
             <div className="flex-shrink-0 mr-4 md:mr-6 z-10">

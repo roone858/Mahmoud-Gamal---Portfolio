@@ -12,11 +12,11 @@ import Link from "next/link";
 
 const NavMenu: React.FC = () => {
   const navItems = [
-    { icon: faHome, label: "Home", href: "#", active: true },
-    { icon: faUser, label: "About", href: "#" },
-    { icon: faBriefcase, label: "Portfolio", href: "#" },
-    { icon: faEnvelope, label: "Contact", href: "#" },
-    { icon: faComments, label: "Blog", href: "#" },
+    { icon: faHome, label: "Home", href: "/", active: true },
+    { icon: faUser, label: "About", href: "about" },
+    { icon: faBriefcase, label: "Portfolio", href: "portfolio" },
+    { icon: faEnvelope, label: "Contact", href: "contact" },
+    { icon: faComments, label: "Blog", href: "blog" },
   ];
 
   return (
