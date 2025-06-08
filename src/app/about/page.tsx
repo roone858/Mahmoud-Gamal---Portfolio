@@ -30,9 +30,9 @@ const About = () => {
 
   return (
     <section className="py-8 pb-24 mx-auto px-4 sm:px-6 lg:px-8">
-      <Header title="about" subtitle="about me" />
+      <Header title="about" subtitle="about" goldenrod="me" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 py-12 px-4 md:px-12">
         {/* Personal Info Section */}
         <div className="space-y-6">
           <div className="bg-charcoal backdrop-blur-sm p-6 rounded-xl border border-gray-800 shadow-lg">
@@ -63,9 +63,9 @@ const About = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="bg-charcoal backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-800 shadow-lg hover:border-yellow-400 transition-colors duration-300"
+              className="bg-charcoal backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-gray-800 shadow-lg hover:border-goldenrod transition-colors duration-300"
             >
-              <h3 className="text-3xl sm:text-4xl font-bold text-goldenrod-400 mb-2">
+              <h3 className="text-3xl sm:text-4xl font-bold text-goldenrod mb-2">
                 {stat.value}
               </h3>
               <p className="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">

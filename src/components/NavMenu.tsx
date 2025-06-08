@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,26 +10,28 @@ import {
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NavMenu: React.FC = () => {
+  const pathname = usePathname();
   const navItems = [
-    { icon: faHome, label: "Home", href: "/", active: true },
-    { icon: faUser, label: "About", href: "about" },
-    { icon: faBriefcase, label: "Portfolio", href: "portfolio" },
-    { icon: faEnvelope, label: "Contact", href: "contact" },
-    { icon: faComments, label: "Blog", href: "blog" },
+    { icon: faHome, label: "Home", href: "/" },
+    { icon: faUser, label: "About", href: "/about" },
+    { icon: faBriefcase, label: "Portfolio", href: "/portfolio" },
+    { icon: faEnvelope, label: "Contact", href: "/contact" },
+    { icon: faComments, label: "Blog", href: "/blog" },
   ];
 
   return (
     <nav className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50 md:block hidden">
       <div className="flex flex-col items-center space-y-4 p-2">
-        {navItems.map((item, index) => (
+        {navItems.map((item) => (
           <NavItem
-            key={index}
+            key={item.href}
             icon={item.icon}
             label={item.label}
             href={item.href}
-            active={item.active}
+            active={pathname === item.href}
           />
         ))}
       </div>
@@ -60,7 +63,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, href, active = false }) 
           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
             ${
               active
-                ? "bg-goldenrod text-white "
+                ? "bg-goldenrod text-white"
                 : "bg-secondary text-gray-300 hover:bg-gray-600 hover:text-white"
             }
             group-hover:scale-110`}
@@ -70,9 +73,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, href, active = false }) 
         </button>
 
         {/* Active indicator */}
-        {/* {active && (
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 w-1 h-6 bg-goldenrod-500 rounded-r"></div>
-        )}   */}
+      
       </div>
     </Link>
   );
