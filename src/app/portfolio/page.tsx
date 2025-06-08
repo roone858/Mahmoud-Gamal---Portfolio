@@ -24,7 +24,6 @@ interface Project {
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [likedProjects, setLikedProjects] = useState<number[]>([]);
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects: Project[] = [
     {
@@ -130,8 +129,7 @@ export default function Projects() {
             whileHover="hover"
             onClick={() => setSelectedProject(project)}
             transition={{ duration: 0.3 }}
-            onMouseEnter={() => setHoveredProject(project.id)}
-            onMouseLeave={() => setHoveredProject(null)}
+           
           >
             <div className="bg-charcoal  rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
               {/* Project Image */}
