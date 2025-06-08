@@ -35,7 +35,7 @@ const Home = () => {
     <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
       {/* Yellow background element */}
       <motion.div
-        className="hidden lg:block absolute h-[100vh] w-1/4 -left-1/4 -rotate-12 bg-goldenrod origin-left"
+        className="hidden lg:block absolute h-[100vh] w-[50vw] top-20 scale-125   -left-1/4 -rotate-12 bg-goldenrod origin-left"
         initial={{ x: "-100%" }}
         animate={{ x: "-25%" }}
         transition={{ 
@@ -57,7 +57,7 @@ const Home = () => {
           variants={itemVariants}
         >
           <motion.div
-            className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
+            className="relative w-50 h-50 sm:w-62 sm:h-62 md:w-74 md:h-74 lg:w-82 lg:h-82 xl:w-98 xl:h-98"
             whileHover={{ 
               scale: 1.05,
               rotate: 2
@@ -128,7 +128,7 @@ const Home = () => {
             variants={containerVariants}
           >
             <motion.button
-              className="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base bg-red text-white border-2 border-red rounded-full font-medium hover:bg-red-600 transition-colors"
+              className="px-6 py-3 sm:px-8 sm:py-3 text-sm sm:text-base bg-red text-white border-2 border-red rounded-full font-medium hover:bg-goldenrod transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={itemVariants}
