@@ -68,11 +68,11 @@ export default function Projects() {
               >
                 <div className="bg-gradient-to-br from-nero to-gray-900 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="mb-6">
-                    <img 
+                    {/* <img 
                       src={project.image} 
                       alt={project.title}
                       className="w-full h-48 object-cover rounded-lg"
-                    />
+                    /> */}
                   </div>
                   <div className="flex justify-between items-start mb-4">
                     <a href="#" className="text-red hover:underline">

@@ -43,9 +43,9 @@ const Contact: React.FC = () => {
       </div>
       
       <p className="text-gray-300 text-center w-full md:w-3/4 mx-auto mb-12">
-        Although I'm not currently looking for any new opportunities, my inbox
+       {` Although I'm not currently looking for any new opportunities, my inbox
         is always open. Whether you have a question or just want to say hi, I'll
-        try my best to get back to you!
+        try my best to get back to you!`}
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12">
@@ -140,8 +140,8 @@ const Contact: React.FC = () => {
           {showMessage && (
             <div className="mt-4 border-2 border-green-500 rounded-xl p-4">
               <p className="text-white">
-                Thank you for letting us know. I'm here to help, and I'll respond
-                as soon as I can. Have a great day
+              {`  Thank you for letting us know. I'm here to help, and I'll respond
+                as soon as I can. Have a great day`}
               </p>
             </div>
           )}
