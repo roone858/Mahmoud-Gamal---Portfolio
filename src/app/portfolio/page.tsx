@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
+import Image from "next/image";
 
 interface Project {
   id: number;
@@ -28,36 +29,36 @@ export default function Projects() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "School Management System | PERN STACK",
+      title: "Mahmoud Gamal Portfolio | Next.js App  ",
       category: "Full Stack",
-      image: "/imgs/cms.jpeg",
+      image: "/portfolio-5.png",
       description:
         "A comprehensive school management system built with PostgreSQL, Express, React, and Node.js. Features include student enrollment, grade tracking, and teacher management.",
       technologies: [
-        "React",
+        "Next.js",
         "Node.js",
         "Express",
-        "PostgreSQL",
+        "MongoDB",
         "Tailwind CSS",
       ],
-      demoUrl: "#",
-      githubUrl: "#",
+      demoUrl: "https://mahmoud-gamal-portfolio.vercel.app/",
+      githubUrl: "#https://github.com/roone858/Mahmoud-Gamal---Portfolio",
     },
     {
       id: 2,
-      title: "Egypt Future Work | Static Website",
-      category: "Frontend",
-      image: "/imgs/Egypt.jpeg",
+      title: "Sukoon | E-commerce Website",
+      category: "Full Stack",
+      image: "/portfolio-2.png",
       description:
         "A responsive static website showcasing Egypt's future work initiatives with modern animations and interactive elements.",
-      technologies: ["HTML", "CSS", "JavaScript", "GSAP"],
-      demoUrl: "#",
+      technologies: [ "Nest.js", "MongoDB", "React","Tailwind CSS"],
+      demoUrl: "https://sukoon-blond.vercel.app/",
     },
     {
       id: 3,
       title: "Recipe Finder | React.js, API integration",
       category: "Frontend",
-      image: "/imgs/recipe-finder.jpeg",
+      image: "/portfolio-3.png",
       description:
         "Interactive recipe finder application that fetches data from external APIs with search and filtering capabilities.",
       technologies: ["React", "API Integration", "CSS Modules"],
@@ -67,7 +68,7 @@ export default function Projects() {
       id: 4,
       title: "Search Country Project",
       category: "Frontend",
-      image: "/imgs/wcl.JPG",
+      image: "/portfolio-4.png",
       description:
         "Country information search tool with detailed statistics and interactive maps.",
       technologies: ["React", "REST API", "Chart.js"],
@@ -77,7 +78,7 @@ export default function Projects() {
       id: 5,
       title: "Most Countries Project",
       category: "Frontend",
-      image: "/imgs/wcd.JPG",
+      image: "/portfolio-5.png",
       description:
         "Comparative analysis dashboard for country statistics with data visualization.",
       technologies: ["React", "D3.js", "Tailwind CSS"],
@@ -129,14 +130,18 @@ export default function Projects() {
             whileHover="hover"
             onClick={() => setSelectedProject(project)}
             transition={{ duration: 0.3 }}
-           
           >
             <div className="bg-charcoal  rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
               {/* Project Image */}
-              <div className="relative   h-48 sm:h-56 overflow-hidden">
-                <div className="absolute m-4 mb-0  rounded-lg inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
-                <div className="w-full h-full  flex items-center justify-center">
-                  <span className="text-gray-500">Project Image</span>
+              <div className="relative p-4  m-4  mb-0 h-48 rounded-lg sm:h-56 overflow-hidden">
+                {/* <div className="absolute m-4 mb-0  rounded-lg inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" /> */}
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-center rounded-lg"
+                  />
                 </div>
               </div>
 
@@ -162,12 +167,12 @@ export default function Projects() {
                     }
                   >
                     {likedProjects.includes(project.id) ? (
-                      <FaHeart className="text-red-500 text-sm  sm:text-xl" />   
+                      <FaHeart className="text-red-500 text-sm  sm:text-xl" />
                     ) : (
-                      <FaRegHeart className="text-white/75 text-sm sm:text-xl hover:text-red-500 transition-colors" /> 
-                    )}  <span className="ml-2 text-white/75 text-sm">{" 267"}</span>
+                      <FaRegHeart className="text-white/75 text-sm sm:text-xl hover:text-red-500 transition-colors" />
+                    )}{" "}
+                    <span className="ml-2 text-white/75 text-sm">{" 267"}</span>
                   </motion.button>
-               
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-semibold text-white/75 mb-3 line-clamp-2">
