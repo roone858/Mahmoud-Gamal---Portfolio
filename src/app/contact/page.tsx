@@ -46,22 +46,22 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className=" py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className=" py-12  max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 ">
       {/* Header with animations */}
       <Header title="contact" subtitle="get in" goldenrod="touch" />
 
       {/* Contact Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-6 ">
         {/* Contact Info */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h3 className="text-2xl uppercase font-bold mb-6 text-white">
+          <h3 className="text-2xl uppercase font-medium mb-6 text-white">
             Feel free to ask me!
           </h3>
-          <p className="text-white mb-8">
+          <p className="text-white mb-8 text-sm sm:text-base">
             {` I'm passionate about creating digital experiences and solving problems. 
             If you have a project in mind or just want to connect, don't hesitate to reach out.`}
           </p>
@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
                 <FaEnvelope className="text-yellow-400 text-xl" />
               </div>
               <div>
-                <label className="block uppercase font-bold text-sm text-white mb-1">
+                <label className="block uppercase  text-sm text-white/75 mb-1">
                   mail me
                 </label>
                 <a
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
                 <FaPhone className="text-yellow-400 text-xl" />
               </div>
               <div>
-                <label className="block uppercase font-bold text-sm text-white mb-1">
+                <label className="block uppercase  text-sm text-white/75 mb-1">
                   call me
                 </label>
                 <a
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="pt-4">
-              <h4 className="text-white uppercase font-bold text-sm mb-4">
+              <h4 className="text-white uppercase  text-sm mb-4">
                 Connect with me
               </h4>
               <div className="flex gap-4">
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
                   href="https://www.facebook.com/mah.moud.1675275"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  className=" hover:text-yellow-400 text-xl transition-colors bg-charcoal rounded-full p-3"
                   aria-label="Facebook"
                 >
                   <FaFacebook />
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
                   href="https://www.linkedin.com/in/mahmoud-gamal-55a933166/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  className=" hover:text-yellow-400 text-xl transition-colors bg-charcoal rounded-full p-3"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin />
@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
                   href="https://twitter.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  className=" hover:text-yellow-400 text-xl transition-colors bg-charcoal rounded-full p-3"
                   aria-label="Twitter"
                 >
                   <FaTwitter />
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                   href="https://wa.me/201140192314"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-yellow-400 text-xl transition-colors"
+                  className=" hover:text-yellow-400 text-xl transition-colors bg-charcoal rounded-full p-3"
                   aria-label="WhatsApp"
                 >
                   <FaWhatsapp />
@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full bg-charcoal  rounded-full px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                  className="w-full bg-charcoal  rounded-full px-6 py-3 text-white focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
                   required
                 />
               </div>
@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"
-                  className="w-full bg-charcoal  rounded-full px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                  className="w-full bg-charcoal  rounded-full px-6 py-3 text-white focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
                   required
                 />
               </div>
@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className="w-full bg-charcoal  rounded-full px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                className="w-full bg-charcoal  rounded-full px-6 py-3 text-white focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
                 required
               />
             </div>
@@ -214,7 +214,7 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 rows={5}
                 placeholder="Your Message"
-                className="w-full bg-charcoal  rounded-3xl px-6 py-3 text-white placeholder-gray-500 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
+                className="w-full bg-charcoal  rounded-3xl px-6 py-3 text-white  focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all"
                 required
               />
             </div>

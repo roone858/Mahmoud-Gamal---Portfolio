@@ -2,14 +2,23 @@ import React from 'react';
 
 const Skills: React.FC = () => {
   const skills = [
-    { name: 'HTML', percentage: 25 },
-    { name: 'JAVASCRIPT', percentage: 89 },
-    { name: 'CSS', percentage: 70 },
-    { name: 'PHP', percentage: 66 },
-    { name: 'WORDPRESS', percentage: 95 },
-    { name: 'JQUERY', percentage: 50 },
-    { name: 'ANGULAR', percentage: 65 },
-    { name: 'REACT', percentage: 45 },
+    { name: 'HTML', percentage: 95 },
+    { name: 'CSS', percentage: 90 },
+    { name: 'JAVASCRIPT', percentage: 93 },
+    { name: 'TYPESCRIPT', percentage: 88 },
+    { name: 'REACT', percentage: 90 },
+    { name: 'NEXT.JS', percentage: 85 },
+    { name: 'ANGULAR', percentage: 70 },
+    { name: 'NODE.JS', percentage: 85 },
+    { name: 'NESTJS', percentage: 92 },
+    { name: 'MONGODB', percentage: 80 },
+    { name: 'POSTGRESQL', percentage: 75 },
+    { name: 'STRIPE INTEGRATION', percentage: 85 },
+    { name: 'TAILWIND CSS', percentage: 90 },
+    { name: 'BOOTSTRAP', percentage: 70 },
+    { name: 'PHP', percentage: 50 },
+    { name: 'WORDPRESS', percentage: 60 },
+    { name: 'JQUERY', percentage: 40 },
   ];
 
   return (

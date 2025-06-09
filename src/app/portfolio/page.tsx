@@ -111,7 +111,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="min-h-screen  text-white py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="min-h-screen  text-white py-12 px-6 sm:px-8 lg:px-10 max-w-7xl mx-auto">
       {/* Header */}
      
         <Header title="works" subtitle="my" goldenrod="portfolio" />

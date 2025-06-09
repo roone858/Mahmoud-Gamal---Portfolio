@@ -32,7 +32,7 @@ const Home = () => {
   };
 
   return (
-    <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
+    <section className="relative h-screen w-full flex justify-center items-center overflow-hidden ">
       {/* Yellow background element */}
       <motion.div
         className="hidden lg:block absolute h-[100vh] w-[50vw] top-20 scale-125   -left-1/4 -rotate-12 bg-goldenrod origin-left"
