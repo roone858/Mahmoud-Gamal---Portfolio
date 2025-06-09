@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, goldenrod }) => {
         animate={{ y: 0 }} // Slide in
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <h1 className="text-xl text-white font-extrabold uppercase font-poppins text-left">
+        <h1 className="text-xl text-white  font-extrabold uppercase font-poppins text-left">
           {subtitle}{' '}
           {goldenrod && <span className="text-yellow-400">{' ' + goldenrod}</span>}
         </h1>
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, goldenrod }) => {
         <h2 className="absolute text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal uppercase text-center font-poppins font-black left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {title}
         </h2>
-        <h1 className="absolute text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center text-white font-extrabold uppercase font-poppins left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <h1 className="absolute text-2xl text-nowrap sm:text-3xl md:text-4xl lg:text-5xl text-center text-white font-extrabold uppercase font-poppins left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
           {subtitle}{' '}
           {goldenrod && <span className="text-yellow-400">{' ' + goldenrod}</span>}
         </h1>
