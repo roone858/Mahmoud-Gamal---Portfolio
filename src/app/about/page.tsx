@@ -56,6 +56,7 @@ const About = () => {
             <Button 
               icon={faDownload} 
               text="Download CV" 
+              href="/Mahmoud Gamal CV V2.3.pdf"
             />
           </div>
         </div>
