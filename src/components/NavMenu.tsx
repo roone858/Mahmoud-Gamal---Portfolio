@@ -54,14 +54,14 @@ const NavItem: React.FC<NavItemProps> = ({
 }) => {
   return (
     <Link href={href} passHref>
-      <div className="relative group cursor-pointer">
+      <div className="relative cursor-pointer group ">
         {/* Button */}
         <button
-          className={`relative z-10 w-12 h-12 cursor-pointer rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
+          className={`relative z-10 w-12 h-12  cursor-pointer rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
             ${
               active
                 ? "bg-goldenrod text-white"
-                : "bg-secondary text-gray-300 hover:bg-goldenrod hover:text-white"
+                : "bg-secondary text-gray-300 group-hover:bg-goldenrod group-hover:text-white"
             }
           `}
           aria-label={label}
@@ -70,12 +70,12 @@ const NavItem: React.FC<NavItemProps> = ({
         </button>
 
         {/* Tooltip */}
-        <div className="absolute right-full top-1/2 transform -translate-y-1/2 -mr-10 rounded-full overflow-hidden">
+        <div className=" hidden group-hover:block absolute right-full top-1/2 transform -translate-y-1/2 -mr-10 rounded-full  transition-all duration-500 ease-in-out
+            translate-x-20 opacity-0
+            group-hover:translate-x-0 group-hover:opacity-100 ">
           <div
             className="bg-goldenrod rounded-full flex items-center justify-center w-32 h-12 text-white text-xs font-medium px-2 py-1 whitespace-nowrap
-            transition-all duration-500 ease-in-out
-            translate-x-20 opacity-0
-            group-hover:translate-x-0 group-hover:opacity-100"
+           "
           >
             {label}
           </div>

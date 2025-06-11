@@ -15,7 +15,7 @@ interface Project {
   id: number;
   title: string;
   category: string;
-  image: string;
+  images: string[];
   description: string;
   technologies: string[];
   demoUrl?: string;
@@ -31,34 +31,35 @@ export default function Projects() {
       id: 1,
       title: "Mahmoud Gamal Portfolio | Next.js App  ",
       category: "Full Stack",
-      image: "/portfolio-5.png",
+      images: ["/portfolio-5.png", "/portfolio-2.png"],
       description:
         "A comprehensive school management system built with PostgreSQL, Express, React, and Node.js. Features include student enrollment, grade tracking, and teacher management.",
       technologies: [
         "Next.js",
         "Node.js",
         "Express",
+        "TypeScript",
         "MongoDB",
         "Tailwind CSS",
       ],
       demoUrl: "https://mahmoud-gamal-portfolio.vercel.app/",
-      githubUrl: "#https://github.com/roone858/Mahmoud-Gamal---Portfolio",
+      githubUrl: "https://github.com/roone858/Mahmoud-Gamal---Portfolio",
     },
     {
       id: 2,
       title: "Sukoon | E-commerce Website",
       category: "Full Stack",
-      image: "/portfolio-2.png",
+      images: ["/sukoon.png", "/sukoon 2.png" , "/sukoon (2).png"],
       description:
         "A responsive static website showcasing Egypt's future work initiatives with modern animations and interactive elements.",
-      technologies: [ "Nest.js", "MongoDB", "React","Tailwind CSS"],
+      technologies: [ "Nest.js", "MongoDB", "React","TypeScript" ,"Tailwind CSS"],
       demoUrl: "https://sukoon-blond.vercel.app/",
     },
     {
       id: 3,
       title: "Recipe Finder | React.js, API integration",
       category: "Frontend",
-      image: "/portfolio-3.png",
+      images: ["/portfolio-3.png", "/portfolio-3.png"],
       description:
         "Interactive recipe finder application that fetches data from external APIs with search and filtering capabilities.",
       technologies: ["React", "API Integration", "CSS Modules"],
@@ -68,7 +69,7 @@ export default function Projects() {
       id: 4,
       title: "Search Country Project",
       category: "Frontend",
-      image: "/portfolio-4.png",
+      images: ["/sukoon 2.png", "/sukoon 2.png"],
       description:
         "Country information search tool with detailed statistics and interactive maps.",
       technologies: ["React", "REST API", "Chart.js"],
@@ -78,7 +79,7 @@ export default function Projects() {
       id: 5,
       title: "Most Countries Project",
       category: "Frontend",
-      image: "/portfolio-5.png",
+      images: ["/sukoon.png", "/sukoon.png"],
       description:
         "Comparative analysis dashboard for country statistics with data visualization.",
       technologies: ["React", "D3.js", "Tailwind CSS"],
@@ -137,10 +138,10 @@ export default function Projects() {
                 {/* <div className="absolute m-4 mb-0  rounded-lg inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" /> */}
                 <div className="w-full h-full flex items-center justify-center">
                   <Image
-                    src={project.image}
+                    src={project.images[0] }
                     alt={project.title}
                     fill
-                    className="object-center rounded-lg"
+                    className="object-cover rounded-lg"
                   />
                 </div>
               </div>
@@ -159,7 +160,7 @@ export default function Projects() {
                       e.stopPropagation();
                       toggleLike(project.id);
                     }}
-                    className="flex justify-center items-center  rounded-full transition-colors"
+                    className="flex justify-center items-center rounded-full transition-colors"
                     aria-label={
                       likedProjects.includes(project.id)
                         ? "Unlike project"
@@ -208,7 +209,13 @@ export default function Projects() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="h-48 sm:h-64 md:h-full bg-background rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500">Project Image</span>
+                <Image
+                    src={selectedProject.images[1] }
+                    alt={selectedProject.title}
+                    width={500}
+                    height={500}
+                    className="object-cover rounded-l "
+                  />
                 </div>
 
                 <div>
