@@ -46,34 +46,40 @@ interface NavItemProps {
   active?: boolean;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ icon, label, href, active = false }) => {
+const NavItem: React.FC<NavItemProps> = ({
+  icon,
+  label,
+  href,
+  active = false,
+}) => {
   return (
     <Link href={href} passHref>
-      <div className="relative group">
-        {/* Tooltip */}
-        <div className="absolute right-full top-1/2 transform -translate-y-1/2 mr-3 hidden group-hover:block">
-          <div className="bg-gray-800 text-white text-xs font-medium px-2 py-1 rounded whitespace-nowrap">
-            {label}
-            <div className="absolute left-full top-1/2 w-2 h-2 bg-gray-800 transform -translate-y-1/2 rotate-45"></div>
-          </div>
-        </div>
-
+      <div className="relative group cursor-pointer">
         {/* Button */}
         <button
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
+          className={`relative z-10 w-12 h-12 cursor-pointer rounded-full flex items-center justify-center transition-all duration-300 ease-in-out
             ${
               active
                 ? "bg-goldenrod text-white"
-                : "bg-secondary text-gray-300 hover:bg-gray-600 hover:text-white"
+                : "bg-secondary text-gray-300 hover:bg-goldenrod hover:text-white"
             }
-            group-hover:scale-110`}
+          `}
           aria-label={label}
         >
           <FontAwesomeIcon icon={icon} size="lg" />
         </button>
 
-        {/* Active indicator */}
-      
+        {/* Tooltip */}
+        <div className="absolute right-full top-1/2 transform -translate-y-1/2 -mr-10 rounded-full overflow-hidden">
+          <div
+            className="bg-goldenrod rounded-full flex items-center justify-center w-32 h-12 text-white text-xs font-medium px-2 py-1 whitespace-nowrap
+            transition-all duration-500 ease-in-out
+            translate-x-20 opacity-0
+            group-hover:translate-x-0 group-hover:opacity-100"
+          >
+            {label}
+          </div>
+        </div>
       </div>
     </Link>
   );
