@@ -49,31 +49,81 @@ export default function Projects() {
       id: 2,
       title: "Sukoon | E-commerce Website",
       category: "Full Stack",
-      images: ["/sukoon.png", "/sukoon 2.png" , "/sukoon (2).png"],
+      images: [
+        "/Sukoon Mockup.png",
+        "/sukoon.png",
+        "/sukoon 2.png",
+        "/sukoon (2).png",
+      ],
       description:
         "A responsive static website showcasing Egypt's future work initiatives with modern animations and interactive elements.",
-      technologies: [ "Nest.js", "MongoDB", "React","TypeScript" ,"Tailwind CSS"],
+      technologies: [
+        "Nest.js",
+        "MongoDB",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+      ],
       demoUrl: "https://sukoon-blond.vercel.app/",
     },
     {
       id: 3,
-      title: "Recipe Finder | React.js, API integration",
-      category: "Frontend",
-      images: ["/ciseco.png", "/ciseco 1.png"],
-      description:
-        "Interactive recipe finder application that fetches data from external APIs with search and filtering capabilities.",
-      technologies: ["React", "API Integration", "CSS Modules"],
-      githubUrl: "#",
+      title: "Freshchat",
+      category: "chat application",
+      images: ["/fresh chat.png", "/fresh chat 2.png"],
+      description: `Backend (NestJS):
+- Manages user authentication and authorization.
+- Handles communication with the MongoDB database for storing and retrieving chat messages.
+- Utilizes Socket.io to enable real-time communication between the server and clients.
+
+Database (MongoDB):
+- Stores chat messages and user data in a NoSQL format.
+
+Real-time Communication (Socket.io):
+- Facilitates real-time, bidirectional communication between the server and connected clients.
+
+Frontend (React):
+- Provides a user interface for users to interact with the chat application.`,
+      technologies: [
+        "Nest.js",
+        "Socket.io",
+        "Websocket",
+        "MongoDB",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "JWT",
+        "Node.js",
+        "Express",
+      ],
+      // githubUrl: "#",
     },
     {
       id: 4,
-      title: "Search Country Project",
+      title: "Ciseco-E-commerce-Vite-React-Redux-Tailwind",
       category: "Frontend",
-       images: ["/ciseco.png", "/ciseco 1.png"],
-      description:
-        "Country information search tool with detailed statistics and interactive maps.",
-      technologies: ["React", "REST API", "Chart.js"],
-      demoUrl: "#",
+      images: ["/ciseco.png", "/ciseco 1.png"],
+      description: `Register or log in to start shopping.
+Browse products and add them to your cart.
+Review your cart and proceed to checkout.
+Complete the checkout process, providing shipping and payment details.
+View your order history and user profile.`,
+      technologies: [
+        "Redux",
+        "Vite",
+        "Typescript",
+        "React",
+        "REST API",
+        "Chart.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT",
+        "Stripe",
+        "Paypal",
+      ],
+      demoUrl: "https://ciseco-e-commerce-vite-react-redux.vercel.app/",
     },
     {
       id: 5,
@@ -114,9 +164,8 @@ export default function Projects() {
   return (
     <section className="min-h-screen  text-white py-12 px-6 sm:px-8 lg:px-10 max-w-7xl mx-auto">
       {/* Header */}
-     
-        <Header title="works" subtitle="my" goldenrod="portfolio" />
-     
+
+      <Header title="works" subtitle="my" goldenrod="portfolio" />
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6 ">
@@ -138,7 +187,7 @@ export default function Projects() {
                 {/* <div className="absolute m-4 mb-0  rounded-lg inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" /> */}
                 <div className="w-full h-full flex items-center justify-center">
                   <Image
-                    src={project.images[0] }
+                    src={project.images[0]}
                     alt={project.title}
                     fill
                     className="object-cover rounded-lg"
@@ -209,8 +258,8 @@ export default function Projects() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="h-48 sm:h-64 md:h-full bg-background rounded-lg flex items-center justify-center">
-                <Image
-                    src={selectedProject.images[1] }
+                  <Image
+                    src={selectedProject.images[1]}
                     alt={selectedProject.title}
                     width={500}
                     height={500}
