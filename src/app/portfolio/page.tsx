@@ -31,7 +31,7 @@ export default function Projects() {
       id: 1,
       title: "Mahmoud Gamal Portfolio | Next.js App  ",
       category: "Full Stack",
-      images: ["/portfolio-5.png", "/portfolio-2.png"],
+      images: ["/portfolio.png", "/portfolio-2.png"],
       description:
         "A comprehensive school management system built with PostgreSQL, Express, React, and Node.js. Features include student enrollment, grade tracking, and teacher management.",
       technologies: [
@@ -59,7 +59,7 @@ export default function Projects() {
       id: 3,
       title: "Recipe Finder | React.js, API integration",
       category: "Frontend",
-      images: ["/portfolio-3.png", "/portfolio-3.png"],
+      images: ["/ciseco.png", "/ciseco 1.png"],
       description:
         "Interactive recipe finder application that fetches data from external APIs with search and filtering capabilities.",
       technologies: ["React", "API Integration", "CSS Modules"],
@@ -69,7 +69,7 @@ export default function Projects() {
       id: 4,
       title: "Search Country Project",
       category: "Frontend",
-      images: ["/sukoon 2.png", "/sukoon 2.png"],
+       images: ["/ciseco.png", "/ciseco 1.png"],
       description:
         "Country information search tool with detailed statistics and interactive maps.",
       technologies: ["React", "REST API", "Chart.js"],
