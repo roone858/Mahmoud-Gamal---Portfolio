@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaEnvelope, FaPhone, FaCheckCircle } from "react-icons/fa";
 import { FaFacebook, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
-import Button from "@/components/Button";
+import Button from "@/Components/Button";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import Header from "@/components/Header";
+import Header from "@/Components/Header";
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",

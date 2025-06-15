@@ -8,7 +8,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "@/components/Header";
+import Header from "@/Components/Header";
 import Image from "next/image";
 
 interface Project {

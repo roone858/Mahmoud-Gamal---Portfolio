@@ -1,10 +1,11 @@
 // src/app/(main)/about/page.tsx
 import React from 'react'
-import Header from '@/components/Header'
-import Skills from '@/components/Skills';
-import ExperienceEducation from '@/components/ExperienceEducation';
+import Header from '@/Components/Header'
+import Skills from '@/Components/Skills';
+import ExperienceEducation from '@/Components/ExperienceEducation';
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import Button from '@/components/Button';
+import Button from '@/Components/Button';
+import CountUp from '@/Components/CountUp';
 
 interface AboutItem {
   label: string;
@@ -69,7 +70,15 @@ const About = () => {
               className=" backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-charcoal shadow-lg hover:border-goldenrod transition-colors duration-300"
             >
               <h3 className="text-3xl sm:text-4xl font-bold text-goldenrod mb-2">
-                {stat.value}
+                  <CountUp
+                      from={0}
+                      to={parseInt(stat.value)}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                      />
+                      +
               </h3>
               <p className="text-xs sm:text-xl  text-gray-300 uppercase tracking-wider">
                 {stat.label}

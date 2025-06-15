@@ -1,20 +1,14 @@
 // src/app/(main)/layout.tsx
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-config.autoAddCss = false;
-import Navbar from "@/components/NavMenu";
-import MobileMenu from "@/components/MobileMenu";
-import { RouteTransition } from "@/components/RouteTransition";
-import { Poppins } from "next/font/google";
+// Make sure the Navbar component exists at this path, or update the path if necessary
+import Navbar from "../Components/NavMenu";
+import SplashCursor from "@/Components/SplashCursor";
+import MobileMenu from "@/Components/MobileMenu";
+import { RouteTransition } from "@/Components/RouteTransition";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "900"], // You can customize the weights
-  display: "swap",
-  variable: "--font-poppins",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mahmoud Gamal - Portfolio",
@@ -28,13 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} text-white`}>
-        <Navbar />
+      <body className={`${inter.className}  bg-amber-700 text-white`}>
+        <SplashCursor />
         <MobileMenu />
-        <main>
-          <RouteTransition />
-          {children}
-        </main>
+        <RouteTransition/>
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );
