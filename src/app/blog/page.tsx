@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaClock, FaUser } from "react-icons/fa";
-import Header from "@/Components/Header";
+import Header from "@/components/Header";
 
 interface BlogPost {
   id: number;

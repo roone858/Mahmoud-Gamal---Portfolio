@@ -1,11 +1,11 @@
 // src/app/(main)/about/page.tsx
 import React from 'react'
-import Header from '@/Components/Header'
-import Skills from '@/Components/Skills';
-import ExperienceEducation from '@/Components/ExperienceEducation';
+import Header from '@/components/Header'
+import Skills from '@/components/Skills';
+import ExperienceEducation from '@/components/ExperienceEducation';
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import Button from '@/Components/Button';
-import CountUp from '@/Components/CountUp';
+import Button from '@/components/Button';
+import CountUp from '@/components/CountUp';
 
 interface AboutItem {
   label: string;
